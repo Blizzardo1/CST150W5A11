@@ -11,6 +11,10 @@ namespace CST150W5A11
 
         public int Face => _number;
 
+        /// <summary>
+        /// Create new Die with number of <see cref="sides"/>
+        /// </summary>
+        /// <param name="sides">The number of sides to create. From a D4 to a D20 is only supported.</param>
         public Die(int sides = 6)
         {
             if (sides is < 4 or > 20)
@@ -22,12 +26,18 @@ namespace CST150W5A11
             _previousRolls = new();
         }
 
+        /// <summary>
+        /// Resets the Die to 1
+        /// </summary>
         public void ResetDie()
         {
             _number = 1;
             dieLbl.Text = _number.ToString();
         }
 
+        /// <summary>
+        /// Rolls the die
+        /// </summary>
         public void RollDie()
         {
             int rolls = Program.Random.Next(1, _sides * _sides * _sides);
